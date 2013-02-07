@@ -13,6 +13,7 @@
 #import "CardGameViewController.h"
 #import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
+#import "GameResult.h"
 
 @interface CardGameViewController ()
 
@@ -28,12 +29,18 @@
 @property (nonatomic) NSUInteger cardsForMatch;
 @property (weak, nonatomic) IBOutlet UISlider *historySlider;
 @property (strong, nonatomic) NSMutableArray *history; // of flip message strings
-@property BOOL musicPlaying;
-
-
+@property (strong, nonatomic) GameResult *gameResult;
 @end
 
 @implementation CardGameViewController
+
+- (GameResult *) gameResult
+{
+    if (!_gameResult ) {
+        _gameResult = [[GameResult alloc] init];
+    }
+    return _gameResult;
+}
 
 - (NSMutableArray *) history
 {
@@ -105,6 +112,7 @@
     self.flipCount++;
     if (!self.gameStarted) self.gameStarted = YES;
     [self updateUI];
+    self.gameResult.score = self.game.score;
     [self.history addObject:[[NSString alloc] initWithString:self.game.lastFlipMessage]];
     self.historySlider.enabled = YES;
     [self.historySlider setMaximumValue:[self.history count]]; // Set the max size of the slide to the number of messages previously shown
@@ -127,6 +135,7 @@
                                                cardsToMatch:self.cardsForMatch];
     self.flipCount = 0;
     self.gameStarted = NO;
+    self.gameResult = nil;
     self.history = [[NSMutableArray alloc] init];
 
     [self.historySlider setValue:0 animated:YES];

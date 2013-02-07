@@ -15,6 +15,12 @@
 		FD75DB8716B5056F0011EBFF /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = FD75DB8616B5056F0011EBFF /* PlayingCard.m */; };
 		FD75DB8A16B50A6B0011EBFF /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = FD75DB8916B50A6B0011EBFF /* PlayingCardDeck.m */; };
 		FDA698FA16BAFCBC0016FE62 /* cardback.png in Resources */ = {isa = PBXBuildFile; fileRef = FDA698F916BAFCBC0016FE62 /* cardback.png */; };
+		FDBCB1CD16C37B6300544FA5 /* GameResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDBCB1CC16C37B6300544FA5 /* GameResultViewController.m */; };
+		FDDD82C816C3800400FA4775 /* GameResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDD82C716C3800400FA4775 /* GameResult.m */; };
+		FDDD82CA16C3A24100FA4775 /* match-tab-image.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDD82C916C3A24100FA4775 /* match-tab-image.png */; };
+		FDDD82CC16C3A2E100FA4775 /* connections.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDD82CB16C3A2E100FA4775 /* connections.png */; };
+		FDDD82CE16C3A30A00FA4775 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDD82CD16C3A30A00FA4775 /* settings.png */; };
+		FDDD82D016C3A32400FA4775 /* scores.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDD82CF16C3A32400FA4775 /* scores.png */; };
 		FDFC186C16B1B46600EDD567 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFC186B16B1B46600EDD567 /* UIKit.framework */; };
 		FDFC186E16B1B46600EDD567 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFC186D16B1B46600EDD567 /* Foundation.framework */; };
 		FDFC187016B1B46600EDD567 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFC186F16B1B46600EDD567 /* CoreGraphics.framework */; };
@@ -43,6 +49,14 @@
 		FD75DB8816B50A6B0011EBFF /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		FD75DB8916B50A6B0011EBFF /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
 		FDA698F916BAFCBC0016FE62 /* cardback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardback.png; sourceTree = "<group>"; };
+		FDBCB1CB16C37B6200544FA5 /* GameResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResultViewController.h; sourceTree = "<group>"; };
+		FDBCB1CC16C37B6300544FA5 /* GameResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameResultViewController.m; sourceTree = "<group>"; };
+		FDDD82C616C3800400FA4775 /* GameResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResult.h; sourceTree = "<group>"; };
+		FDDD82C716C3800400FA4775 /* GameResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameResult.m; sourceTree = "<group>"; };
+		FDDD82C916C3A24100FA4775 /* match-tab-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "match-tab-image.png"; sourceTree = "<group>"; };
+		FDDD82CB16C3A2E100FA4775 /* connections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connections.png; sourceTree = "<group>"; };
+		FDDD82CD16C3A30A00FA4775 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		FDDD82CF16C3A32400FA4775 /* scores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scores.png; sourceTree = "<group>"; };
 		FDFC186716B1B46600EDD567 /* Machismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Machismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDFC186B16B1B46600EDD567 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FDFC186D16B1B46600EDD567 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -126,6 +140,10 @@
 			children = (
 				FD1FABC716BB977E00BB13F4 /* Machismo.entitlements */,
 				FDFC188316B1B46600EDD567 /* MainStoryboard.storyboard */,
+				FDDD82C616C3800400FA4775 /* GameResult.h */,
+				FDDD82C716C3800400FA4775 /* GameResult.m */,
+				FDBCB1CB16C37B6200544FA5 /* GameResultViewController.h */,
+				FDBCB1CC16C37B6300544FA5 /* GameResultViewController.m */,
 				FD75DB8B16B51B590011EBFF /* Model */,
 				FDFC188616B1B46600EDD567 /* CardGameViewController.h */,
 				FDFC188716B1B46600EDD567 /* CardGameViewController.m */,
@@ -137,6 +155,10 @@
 		FDFC187216B1B46600EDD567 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FDDD82C916C3A24100FA4775 /* match-tab-image.png */,
+				FDDD82CD16C3A30A00FA4775 /* settings.png */,
+				FDDD82CF16C3A32400FA4775 /* scores.png */,
+				FDDD82CB16C3A2E100FA4775 /* connections.png */,
 				FDA698F916BAFCBC0016FE62 /* cardback.png */,
 				FDFC187A16B1B46600EDD567 /* CardGameAppDelegate.h */,
 				FDFC187B16B1B46600EDD567 /* CardGameAppDelegate.m */,
@@ -211,6 +233,10 @@
 				FDA698FA16BAFCBC0016FE62 /* cardback.png in Resources */,
 				FD1FABC916BB97FA00BB13F4 /* AppIcon.png in Resources */,
 				FD1FABCB16BB982700BB13F4 /* AppIcon2x.png in Resources */,
+				FDDD82CA16C3A24100FA4775 /* match-tab-image.png in Resources */,
+				FDDD82CC16C3A2E100FA4775 /* connections.png in Resources */,
+				FDDD82CE16C3A30A00FA4775 /* settings.png in Resources */,
+				FDDD82D016C3A32400FA4775 /* scores.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +255,8 @@
 				FD75DB8716B5056F0011EBFF /* PlayingCard.m in Sources */,
 				FD75DB8A16B50A6B0011EBFF /* PlayingCardDeck.m in Sources */,
 				FD37511716BA40810061D10F /* CardMatchingGame.m in Sources */,
+				FDBCB1CD16C37B6300544FA5 /* GameResultViewController.m in Sources */,
+				FDDD82C816C3800400FA4775 /* GameResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
