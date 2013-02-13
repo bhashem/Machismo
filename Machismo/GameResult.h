@@ -10,13 +10,12 @@
 
 @interface GameResult : NSObject
 
-+ (NSArray *)allGameResults; // of GameResults
++ (NSArray *)allGameResults; // of GameResult(s)
++ (void) resetAllScores;
 
 @property (readonly, nonatomic) NSDate *start;
 @property (readonly, nonatomic) NSDate *end;
 @property (readonly, nonatomic) NSTimeInterval duration;
 @property (nonatomic) int score;
 
-// sortItemsUsing Selector ; selector is compare in game result
-//
 @end

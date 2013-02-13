@@ -32,6 +32,14 @@
     return allGameResults;
 }
 
++ (void) resetAllScores
+{
+    NSMutableDictionary *emptyMutableGameResultsForUserDefaults = [[NSMutableDictionary alloc] init];
+    [[NSUserDefaults standardUserDefaults] setObject:emptyMutableGameResultsForUserDefaults forKey:ALL_RESULTS_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
 - (NSComparisonResult)compareDate:(GameResult *)otherObject {
     return [self.start compare:otherObject.start];
 }
