@@ -27,7 +27,8 @@
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[[PlayingCardDeck alloc] init]
-                                               cardsToMatch:self.cardsForMatch];
+                                               cardsToMatch:self.cardsForMatch
+                                               withGameName:@"Matching"];
         NSLog(@"game: Calling init with %i cards to match.",self.cardsForMatch);
     }
     return _game;
@@ -45,7 +46,33 @@
 
 - (void)updateUI
 {
+    // If the game has started, then disable the match style control. If the game is reset or hasn't started, ensure that it's enabled
     self.matchStyleControl.enabled = !self.gameStarted;
+    UIImage *cardBackImage = [UIImage imageNamed:@"cardback.png"];
+    
+    // Iterate through the card buttons and set the various attributes
+    for (UIButton *cardButton in self.cardButtons) {
+        Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
+        
+        // We set the title when the card is selected
+        [cardButton setTitle:card.contents forState:UIControlStateSelected];
+        // ... and also when the card is selected and disabled - need both statements
+        [cardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
+        cardButton.selected = card.isFaceUp;
+        cardButton.enabled = !card.isUnplayable;
+        cardButton.alpha = (card.isUnplayable ? 0.3 : 1.0);
+        
+        cardButton.imageEdgeInsets = UIEdgeInsetsMake(10, 8, 10, 2);
+        if (cardButton.isSelected) {
+            [cardButton setImage:nil forState:UIControlStateNormal];
+            [cardButton setImage:nil forState:UIControlStateSelected];
+        } else {
+            [cardButton setImage:cardBackImage forState:UIControlStateNormal];
+            [cardButton setImage:nil forState:UIControlStateSelected];
+        }
+        
+    }
+
     [super updateUI];
 }
 
@@ -64,7 +91,8 @@
 {
     self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[[PlayingCardDeck alloc] init]
-                                               cardsToMatch:self.cardsForMatch];
+                                               cardsToMatch:self.cardsForMatch
+                                               withGameName:@"Matching"];
     [super resetGame];
 }
 

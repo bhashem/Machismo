@@ -44,6 +44,11 @@
     return [rankStrings[self.rank] stringByAppendingString:self.suit];
 }
 
+- (NSString *) description
+{
+    return self.contents;
+}
+
 @synthesize suit = _suit; // because we provide setter AND getter
 
 + (NSArray *)validSuits

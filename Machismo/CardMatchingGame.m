@@ -120,6 +120,7 @@
 - (id)initWithCardCount:(NSUInteger)count
               usingDeck:(Deck *)deck
            cardsToMatch:(NSUInteger) cardCount
+           withGameName:(NSString *)gameName
 {
     self = [super init];
     
@@ -128,6 +129,7 @@
             Card *card = [deck drawRandomCard];
             if (card) {
                 self.cards[i] = card;
+                NSLog(@"Adding card - %@",[card description]);
             } else {
                 self = nil;
                 break;
@@ -135,9 +137,19 @@
         }
         self.lastFlipMessage = @" ";
         self.cardsToMatch = cardCount;
+        self.gameName = gameName;
     }
     return self;
 }
 
+- (NSString *) description
+{
+    NSString *cstr;
+    cstr = @"";
+    for (Card *c in self.cards) {
+        [cstr stringByAppendingFormat:@"%@\n",[c description]];
+    }
+    return [NSString stringWithFormat:@"Name=%@ Score=%d CardsToMatch=%d\nMsg:%@\n%@",self.gameName, self.score, self.cardsToMatch, self.lastFlipMessage, cstr];
+}
 
 @end

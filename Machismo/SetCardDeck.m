@@ -25,7 +25,7 @@
                         card.shape = shape;
                         card.shading = shading;
                         card.color = color;
-                    [self addCard:card atTop:YES];
+                        [self addCard:card atTop:YES];
                     }
                 }
             }

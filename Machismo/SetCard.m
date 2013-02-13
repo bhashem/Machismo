@@ -36,7 +36,7 @@
     if (shapeMatch && shadingMatch && colorMatch) score = 4;
 
     // Support the wacky match where everything is different
-    if (numbersMatch && shapeMatch && shadingMatch && colorMatch) score = 8;
+    if (!numbersMatch && !shapeMatch && !shadingMatch && !colorMatch) score = 8;
     
     return score;
 }
@@ -46,10 +46,16 @@
     return [@"" stringByPaddingToLength:self.number withString: self.shape startingAtIndex:0];
 }
 
+- (NSAttributedString *)attributedContents
+{
+    return _attributedContents ? _attributedContents : [[NSAttributedString alloc] initWithString:self.contents];
+}
+
 // Class Method to valide shape content values
 + (NSArray *)validShapes
 {
-    return @[@"☐",@"△",@"◯"];
+    return @[@"▲",@"●",@"■"];
+//@"☐",@"△",@"◯"
 }
 
 
@@ -67,5 +73,31 @@
     return _shape ? _shape : @"?";
 }
 
+- (NSString *)description
+{
+    NSString *cname;
+    NSString *sname;
+    NSString *pstr;
+    NSString *fstr;
+    if (self.color == kRed) cname = @"red";
+    if (self.color == kGreen) cname = @"green";
+    if (self.color == kBlue) cname = @"blue";
+    if (self.shading == kHollow) sname = @"hollow";
+    if (self.shading == kHalf) sname = @"half";
+    if (self.shading == kFilled) sname = @"filled";
+    if (self.isUnplayable) {
+        pstr = @"unplayable";
+    } else {
+        pstr = @"playable";
+    }
+    if (self.isFaceUp) {
+        fstr = @"FaceUp";
+    } else {
+        fstr = @"FaceDown";
+    }
+    
+    
+    return [NSString stringWithFormat:@"%d %@ - %@ - %@ / %@ / %@",self.number, self.shape, cname, sname, pstr, fstr];
+}
 
 @end

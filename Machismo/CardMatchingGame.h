@@ -15,7 +15,8 @@
 // designated initializer
 - (id)initWithCardCount:(NSUInteger)count
               usingDeck:(Deck *)deck
-           cardsToMatch:(NSUInteger) cardCount;
+           cardsToMatch:(NSUInteger) cardCount
+           withGameName:(NSString *)gameName;
 
 - (void)flipCardAtIndex:(NSUInteger)index;
 
@@ -23,5 +24,6 @@
 
 @property (readonly, nonatomic) int score;
 @property (readonly,nonatomic) NSString *lastFlipMessage;
+@property (strong,nonatomic) NSString *gameName;
 
 @end
