@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CardGameViewController : UIViewController
+- (void)resetGame;
+- (void)updateUI;
 @end
