@@ -12,6 +12,7 @@
 		93B1FC3616C8D38200150AC7 /* SetGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1FC3516C8D38200150AC7 /* SetGameViewController.m */; };
 		93B1FC3916C8DC4C00150AC7 /* SetCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B1FC3816C8DC4C00150AC7 /* SetCard.m */; };
 		93F2A3EB16C9BCD00065A015 /* SetCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F2A3EA16C9BCD00065A015 /* SetCardDeck.m */; };
+		93FFD55516CB911700A34280 /* ToDo & Fix in Resources */ = {isa = PBXBuildFile; fileRef = 93FFD55416CB911700A34280 /* ToDo & Fix */; };
 		FD1FABC916BB97FA00BB13F4 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1FABC816BB97FA00BB13F4 /* AppIcon.png */; };
 		FD1FABCB16BB982700BB13F4 /* AppIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD1FABCA16BB982700BB13F4 /* AppIcon2x.png */; };
 		FD37511716BA40810061D10F /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = FD37511616BA40810061D10F /* CardMatchingGame.m */; };
@@ -50,6 +51,7 @@
 		93B1FC3816C8DC4C00150AC7 /* SetCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCard.m; sourceTree = "<group>"; };
 		93F2A3E916C9BCD00065A015 /* SetCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetCardDeck.h; sourceTree = "<group>"; };
 		93F2A3EA16C9BCD00065A015 /* SetCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetCardDeck.m; sourceTree = "<group>"; };
+		93FFD55416CB911700A34280 /* ToDo & Fix */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "ToDo & Fix"; path = "Machismo/ToDo & Fix"; sourceTree = "<group>"; };
 		FD1FABC716BB977E00BB13F4 /* Machismo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Machismo.entitlements; sourceTree = "<group>"; };
 		FD1FABC816BB97FA00BB13F4 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		FD1FABCA16BB982700BB13F4 /* AppIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon2x.png; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		FDFC185C16B1B46600EDD567 = {
 			isa = PBXGroup;
 			children = (
+				93FFD55416CB911700A34280 /* ToDo & Fix */,
 				FD1FABCA16BB982700BB13F4 /* AppIcon2x.png */,
 				FD1FABC816BB97FA00BB13F4 /* AppIcon.png */,
 				FDFC187116B1B46600EDD567 /* Machismo */,
@@ -302,6 +305,7 @@
 				FDDD82CC16C3A2E100FA4775 /* connections.png in Resources */,
 				FDDD82CE16C3A30A00FA4775 /* settings.png in Resources */,
 				FDDD82D016C3A32400FA4775 /* scores.png in Resources */,
+				93FFD55516CB911700A34280 /* ToDo & Fix in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

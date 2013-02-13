@@ -18,13 +18,14 @@
 
 -(void)updateUI:(NSArray *)anArray
 {
-    NSString *displayText = @"Score\tGame Date & Time\tDuration\n";
+    NSString *displayText = @"Score Game\tDate & Time\t\tDuration\n";
     for (GameResult *result in anArray) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MMM d, yyyy - h:mm a"];
+        [dateFormatter setDateFormat:@"MMM d - h:mm a"];
+        //        [dateFormatter setDateFormat:@"MMM d, yyyy - h:mm a"];
         [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"PST"]];
         NSString *newDate = [dateFormatter stringFromDate:result.end];
-        displayText = [displayText stringByAppendingFormat:@"%d\t%@\t%0g secs\n", result.score, newDate, round(result.duration)];
+        displayText = [displayText stringByAppendingFormat:@"%7d %@\t%@\t%0g secs\n", result.score, result.game,newDate, round(result.duration)];
     }
     self.display.text = displayText;
 }

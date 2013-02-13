@@ -80,6 +80,7 @@
     if (!self.gameStarted) self.gameStarted = YES;
     [self updateUI];
     self.gameResult.score = self.game.score;
+    self.gameResult.game = self.game.gameName;
     [self.history addObject:[[NSString alloc] initWithString:self.game.lastFlipMessage]];
     self.historySlider.enabled = YES;
     [self.historySlider setMaximumValue:[self.history count]]; // Set the max size of the slide to the number of messages previously shown

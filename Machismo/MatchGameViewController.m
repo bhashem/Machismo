@@ -21,6 +21,8 @@
 
 @implementation MatchGameViewController
 
+#define GAME_NAME @" Match"
+
 - (CardMatchingGame *)game
 {
     [self checkMatchStatus];
@@ -28,8 +30,8 @@
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[[PlayingCardDeck alloc] init]
                                                cardsToMatch:self.cardsForMatch
-                                               withGameName:@"Matching"];
-        NSLog(@"game: Calling init with %i cards to match.",self.cardsForMatch);
+                                               withGameName:GAME_NAME];
+//        NSLog(@"game: Calling init with %i cards to match.",self.cardsForMatch);
     }
     return _game;
 }
@@ -84,7 +86,7 @@
 - (IBAction)dealCards:(UIButton *)sender {
     [self checkMatchStatus];
     [self resetGame];
-    [super updateUI];
+    [self updateUI];
     
 }
 - (void) resetGame
@@ -92,7 +94,7 @@
     self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[[PlayingCardDeck alloc] init]
                                                cardsToMatch:self.cardsForMatch
-                                               withGameName:@"Matching"];
+                                               withGameName:GAME_NAME];
     [super resetGame];
 }
 
@@ -107,6 +109,7 @@
 
 - (void)viewDidLoad
 {
+    [self updateUI];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

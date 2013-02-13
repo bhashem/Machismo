@@ -129,7 +129,7 @@
             Card *card = [deck drawRandomCard];
             if (card) {
                 self.cards[i] = card;
-                NSLog(@"Adding card - %@",[card description]);
+//                NSLog(@"Adding card - %@",[card description]);
             } else {
                 self = nil;
                 break;

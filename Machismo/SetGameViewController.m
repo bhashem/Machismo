@@ -21,14 +21,16 @@
 
 @implementation SetGameViewController
 
+#define GAME_NAME @" Set  "
+
 - (CardMatchingGame *)game
 {
     if (!_game) {
         _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[[SetCardDeck alloc] init]
                                                cardsToMatch:3
-                                               withGameName:@"Set"];
-        NSLog(@"game: Calling init for Set game.");
+                                               withGameName:GAME_NAME];
+//        NSLog(@"game: Calling init for Set game.");
     }
     return _game;
 }
@@ -45,11 +47,11 @@
     UIColor *hollow_color = [UIColor colorWithWhite:0.0 alpha:0.0];
     UIColor *chosen_color;
 
-    NSLog(@"Calling Update UI for Set game");
+//    NSLog(@"Calling Update UI for Set game");
     for (UIButton *cardButton in self.cardButtons) {
         // It's bad to cast, why do we need this?
         SetCard *card = (SetCard *)[self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
-        NSLog(@"Slot %d: %@", [self.cardButtons indexOfObject:cardButton], [card description]);
+//        NSLog(@"Slot %d: %@", [self.cardButtons indexOfObject:cardButton], [card description]);
         
         // Determine what color to use
         if (card.color == kRed) chosen_color = red;
@@ -98,16 +100,16 @@
 - (IBAction)dealCards:(UIButton *)sender {
     [self resetGame];
     [self updateUI];
-    NSLog(@"Set Game: deal cards");
+//    NSLog(@"Set Game: deal cards");
 }
 
 - (void) resetGame
 {
-    NSLog(@"Resetting Set game");
+//    NSLog(@"Resetting Set game");
     self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                   usingDeck:[[SetCardDeck alloc] init]
                                                cardsToMatch:3
-                                               withGameName:@"Set"];
+                                               withGameName:GAME_NAME];
     [super resetGame];
 }
 
@@ -122,6 +124,7 @@
 
 - (void)viewDidLoad
 {
+    [self updateUI];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     // REALLY SHOULD RESET THE GAME SO THAT THE SCORES DON'T MIX
