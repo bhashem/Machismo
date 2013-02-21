@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="8DV-dD-X49">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="8DV-dD-X49">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -74,7 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WOd-PD-C97">
-                                <rect key="frame" x="12" y="324" width="64" height="31"/>
+                                <rect key="frame" x="12" y="295" width="64" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Deal!">
@@ -89,18 +89,16 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="20" id="ced-MK-kOr">
-                                <rect key="frame" x="82" y="328" width="112" height="23"/>
+                                <rect key="frame" x="82" y="299" width="112" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="sliderMoved:" destination="6tU-2d-8m4" eventType="valueChanged" id="7Kh-7k-46G"/>
-                                    <action selector="sliderMoved:" destination="2" eventType="valueChanged" id="wAo-ki-7kY"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q2H-aS-DnH">
-                                <rect key="frame" x="0.0" y="360" width="320" height="42"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q2H-aS-DnH">
+                                <rect key="frame" x="0.0" y="338" width="320" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.6956521739" green="0.53164645789999998" blue="0.125056682" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="49y-Yn-CZe">
@@ -541,6 +539,7 @@
                     <tabBarItem key="tabBarItem" title="Set Game" image="connections.png" id="L84-zS-YPu"/>
                     <connections>
                         <outlet property="flipsLabel" destination="LdV-Ju-Aii" id="kWh-0s-Oxo"/>
+                        <outlet property="historySlider" destination="ced-MK-kOr" id="9kQ-xh-buM"/>
                         <outlet property="lastFlipLabel" destination="Q2H-aS-DnH" id="VvV-rT-m2B"/>
                         <outlet property="scoreLabel" destination="r1U-sT-gLO" id="Jvw-wZ-MNy"/>
                         <outletCollection property="cardButtons" destination="49y-Yn-CZe" id="gmw-Q9-P5M"/>
@@ -872,15 +871,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f1T-Uq-D4a">
-                                <rect key="frame" x="0.0" y="361" width="320" height="42"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f1T-Uq-D4a">
+                                <rect key="frame" x="0.0" y="343" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.6956521739" green="0.53164645789999998" blue="0.125056682" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q7M-A9-SCZ">
-                                <rect key="frame" x="10" y="317" width="64" height="31"/>
+                                <rect key="frame" x="10" y="308" width="64" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Deal!">
@@ -895,7 +893,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="tQp-gO-0vs">
-                                <rect key="frame" x="170" y="321" width="147" height="30"/>
+                                <rect key="frame" x="170" y="312" width="147" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="2-Card"/>
@@ -907,7 +905,7 @@
                                 </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="20" id="XZj-7u-ASw">
-                                <rect key="frame" x="80" y="321" width="82" height="23"/>
+                                <rect key="frame" x="80" y="312" width="82" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="sliderMoved:" destination="2" eventType="valueChanged" id="6gY-O9-waS"/>
@@ -1028,6 +1026,8 @@
         <class className="CardGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CardGameViewController.h"/>
             <relationships>
+                <relationship kind="action" name="flipCard:" candidateClass="UIButton"/>
+                <relationship kind="action" name="sliderMoved:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="flipsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="historySlider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="lastFlipLabel" candidateClass="UILabel"/>
@@ -1038,6 +1038,7 @@
         <class className="GameResultViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameResultViewController.h"/>
             <relationships>
+                <relationship kind="action" name="sortByScore:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="display" candidateClass="UITextView"/>
             </relationships>
         </class>

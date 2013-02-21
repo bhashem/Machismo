@@ -105,11 +105,7 @@
 
 - (void) resetGame
 {
-//    NSLog(@"Resetting Set game");
-    self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-                                                  usingDeck:[[SetCardDeck alloc] init]
-                                               cardsToMatch:3
-                                               withGameName:GAME_NAME];
+    self.game = nil;
     [super resetGame];
 }
 

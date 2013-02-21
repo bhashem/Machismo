@@ -91,10 +91,7 @@
 }
 - (void) resetGame
 {
-    self.game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-                                                  usingDeck:[[PlayingCardDeck alloc] init]
-                                               cardsToMatch:self.cardsForMatch
-                                               withGameName:GAME_NAME];
+    self.game = nil;
     [super resetGame];
 }
 

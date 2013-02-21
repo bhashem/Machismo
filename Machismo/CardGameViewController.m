@@ -59,6 +59,15 @@
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
     self.lastFlipLabel.alpha = 1;
     self.lastFlipLabel.text = self.game.lastFlipMessage;
+    // Use attributed text instead of regular text
+
+    NSMutableParagraphStyle *ps = [[NSMutableParagraphStyle alloc] init];
+    ps.alignment = NSTextAlignmentCenter;
+
+    NSAttributedString *mat = [[NSAttributedString alloc] initWithString:[NSString stringWithString:self.game.lastFlipMessage] attributes:@{NSParagraphStyleAttributeName: ps}];
+
+    self.lastFlipLabel.attributedText = mat;
+
 }
 
 - (void) resetGame
