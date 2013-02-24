@@ -21,13 +21,13 @@
     
     // Detect what kind of matches there are for each attribute
     BOOL numbersMatch = ((c1.number == self.number) &&
-                         (c2.number == self.number));
+                         (c2.number == self.number) && (c1.number == c2.number));
     BOOL shapeMatch = ([c1.shape isEqualToString:self.shape]) &&
-                         ([c2.shape isEqualToString:self.shape]);
+                         ([c2.shape isEqualToString:self.shape] && [c1.shape isEqualToString:c2.shape]);
     BOOL shadingMatch = ((c1.shading == self.shading) &&
-                         (c2.shading == self.shading));
+                         (c2.shading == self.shading) && (c1.shading == c2.shading));
     BOOL colorMatch = ((c1.color == self.color) &&
-                         (c2.color == self.color));
+                         (c2.color == self.color) && (c1.color == c2.color));
     
     // Try AND'ing the various combinations
     if (numbersMatch && shapeMatch && shadingMatch) score = 4;
@@ -36,7 +36,12 @@
     if (shapeMatch && shadingMatch && colorMatch) score = 4;
 
     // Support the wacky match where everything is different
-    if (!numbersMatch && !shapeMatch && !shadingMatch && !colorMatch) score = 8;
+    if (((c1.number != c2.number) && (c2.number != self.number) && (c1.number != self.number)) &&
+        ((c1.shading != c2.shading) && (c2.shading != self.shading) && (c1.shading != self.shading)) &&
+        ((c1.color != c2.color) && (c2.color != self.color) && (c1.color != self.color)) &&
+        (![c1.shape isEqualToString:c2.shape] && ![c2.shape isEqualToString:self.shape] && ![c1.shape isEqualToString:self.shape])
+        )
+        score = 8;
     
     return score;
 }
