@@ -24,6 +24,7 @@
 
 @property (readonly, nonatomic) int score;
 @property (readonly,nonatomic) NSString *lastFlipMessage;
+@property (nonatomic) NSMutableAttributedString *lastFlipMessageAttributed;
 @property (strong,nonatomic) NSString *gameName;
 
 @end

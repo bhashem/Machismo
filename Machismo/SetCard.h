@@ -26,7 +26,6 @@ typedef enum {
 @property (strong,nonatomic) NSString *shape;
 @property (nonatomic) ShadingType shading;
 @property (nonatomic) ColorType color;
-@property (strong,nonatomic) NSAttributedString *attributedContents;
 
 + (NSArray *)validShapes;
 

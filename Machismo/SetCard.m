@@ -51,12 +51,18 @@
     return [@"" stringByPaddingToLength:self.number withString: self.shape startingAtIndex:0];
 }
 
-- (NSAttributedString *)attributedContents
+- (NSMutableAttributedString *)attributedContents
 {
-    return _attributedContents ? _attributedContents : [[NSAttributedString alloc] initWithString:self.contents];
+    UIColor *cardColor;
+    if (self.color == kRed) cardColor = [UIColor redColor];
+    if (self.color == kGreen) cardColor = [UIColor greenColor];
+    if (self.color == kBlue) cardColor = [UIColor blueColor];
+    
+    // Add alpha attribute for the shading
+    return [[NSMutableAttributedString alloc] initWithString:self.contents attributes:@{NSForegroundColorAttributeName:cardColor}];
 }
 
-// Class Method to valide shape content values
+// Class Method to validate shape content values
 + (NSArray *)validShapes
 {
     return @[@"▲",@"●",@"■"];

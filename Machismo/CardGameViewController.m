@@ -57,17 +57,19 @@
 - (void) updateUI
 {
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
+
     self.lastFlipLabel.alpha = 1;
-    self.lastFlipLabel.text = self.game.lastFlipMessage;
-    // Use attributed text instead of regular text
+//    self.lastFlipLabel.text = self.game.lastFlipMessage;
+    // Switching to using attributed text instead of regular text
 
     NSMutableParagraphStyle *ps = [[NSMutableParagraphStyle alloc] init];
     ps.alignment = NSTextAlignmentCenter;
+    NSAttributedString *mat = [self.game.lastFlipMessageAttributed copy];
+    NSMutableAttributedString *at = [[NSMutableAttributedString alloc] initWithAttributedString:mat];
+    NSRange range = NSMakeRange(0, mat.length);
+    [at addAttributes:@{NSParagraphStyleAttributeName: ps} range:range];
 
-    NSAttributedString *mat = [[NSAttributedString alloc] initWithString:[NSString stringWithString:self.game.lastFlipMessage] attributes:@{NSParagraphStyleAttributeName: ps}];
-
-    self.lastFlipLabel.attributedText = mat;
-
+    self.lastFlipLabel.attributedText = at;
 }
 
 - (void) resetGame
@@ -90,7 +92,16 @@
     [self updateUI];
     self.gameResult.score = self.game.score;
     self.gameResult.game = self.game.gameName;
-    [self.history addObject:[[NSString alloc] initWithString:self.game.lastFlipMessage]];
+    //[self.history addObject:[[NSString alloc] initWithString:self.game.lastFlipMessage]];
+    
+    NSMutableParagraphStyle *ps = [[NSMutableParagraphStyle alloc] init];
+    ps.alignment = NSTextAlignmentCenter;
+    NSAttributedString *mat = [self.game.lastFlipMessageAttributed copy];
+    NSMutableAttributedString *at = [[NSMutableAttributedString alloc] initWithAttributedString:mat];
+    NSRange range = NSMakeRange(0, mat.length);
+    [at addAttributes:@{NSParagraphStyleAttributeName: ps} range:range];
+    
+    [self.history addObject:[[NSAttributedString alloc] initWithAttributedString:at]];
     self.historySlider.enabled = YES;
     [self.historySlider setMaximumValue:[self.history count]]; // Set the max size of the slide to the number of messages previously shown
     [self.historySlider setValue:self.historySlider.maximumValue animated:YES];
@@ -98,19 +109,16 @@
 }
 
 - (IBAction)sliderMoved:(UISlider *)sender {
-    NSString *msg;
+    NSAttributedString *msg;
     
     //    NSLog(@"Value of slider is: %f",sender.value);
     NSUInteger step = (NSUInteger)roundf(sender.value);
     //    NSLog(@"Step value is: %i",step);
     //    NSLog(@"Array size is: %i",[self.history count]);
-    if (step) {
-        msg = [self.history objectAtIndex:step-1];
-    } else {
-        msg = @" ";
-    }
+    if (step) msg = [self.history objectAtIndex:step-1];
     self.lastFlipLabel.alpha = 0.4;
-    self.lastFlipLabel.text = msg;
+//    self.lastFlipLabel.text = msg;
+    self.lastFlipLabel.attributedText = msg;
 }
 
 // In ViewDidLoad

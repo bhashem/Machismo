@@ -39,6 +39,11 @@
         if (card && !card.isUnplayable) {
             if (!card.isFaceUp) {
                 self.lastFlipMessage = [NSString stringWithFormat:@"Flipped up %@\nThat cost 1 point", card.contents];
+            NSMutableAttributedString *mat1 = [[NSMutableAttributedString alloc] initWithString:@"Flipped up "];
+            [mat1 appendAttributedString:card.attributedContents];
+            [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:@"\nThat cost 1 point"]];
+                self.lastFlipMessageAttributed = mat1;
+                
                 for (Card *otherCard in self.cards) {
                     if (otherCard.isFaceUp & !otherCard.isUnplayable) {
                         int matchScore = [card match:@[otherCard]];
@@ -48,10 +53,21 @@
                             moreScore = matchScore * MATCH_BONUS;
                             self.score += moreScore;
                             self.lastFlipMessage = [NSString stringWithFormat:@"Matched %@ and %@\nAdding %d points", otherCard.contents, card.contents, moreScore];
+                            NSMutableAttributedString *mat1 = [[NSMutableAttributedString alloc] initWithString:@"Matched "];
+                            [mat1 appendAttributedString:otherCard.attributedContents];
+                            [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:@"and "]];
+                            [mat1 appendAttributedString:card.attributedContents];
+                            [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"\nAdding %d points", moreScore]]];
+                            self.lastFlipMessageAttributed = mat1;
                         } else {
                             otherCard.faceUp = NO;
                             self.score -= MISMATCH_PENALTY;
                             self.lastFlipMessage = [NSString stringWithFormat:@"%@ and %@ don't match!\n%d point penalty", otherCard.contents, card.contents, MISMATCH_PENALTY];
+                            NSMutableAttributedString *mat1 = [[NSMutableAttributedString alloc] initWithAttributedString:otherCard.attributedContents];
+                            [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:@" and "]];
+                            [mat1 appendAttributedString:card.attributedContents];
+                            [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"don't match!\n%d point penalty", MISMATCH_PENALTY]]];
+                            self.lastFlipMessageAttributed = mat1;
                         }
                         break;
                     }
@@ -86,6 +102,10 @@
                 if (faceUpCount < 2) {
                     card.faceUp = YES;
                     self.lastFlipMessage = [NSString stringWithFormat:@"Flipped up %@\nThat cost 1 point", card.contents];
+                NSMutableAttributedString *mat1 = [[NSMutableAttributedString alloc] initWithString:@"Flipped up "];
+                [mat1 appendAttributedString:card.attributedContents];
+                [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:@"\nThat cost 1 point"]];
+                self.lastFlipMessageAttributed = mat1;
                     self.score -= FLIP_COST;                    
                 } else {
                     int matchScore = [card match:upCards];
@@ -94,6 +114,15 @@
                     if (!matchScore) {
                         self.score -= MISMATCH_PENALTY;
                         self.lastFlipMessage = [NSString stringWithFormat:@"%@, %@ and %@ don't match!\n%d point penalty", c1.contents, c2.contents, card.contents, MISMATCH_PENALTY];
+                        
+                        NSMutableAttributedString *mat1 = [[NSMutableAttributedString alloc] initWithAttributedString:c1.attributedContents];
+                        [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:@", "]];
+                        [mat1 appendAttributedString:c2.attributedContents];
+                        [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:@" and "]];
+                        [mat1 appendAttributedString:card.attributedContents];
+                        [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"don't match!\n%d point penalty", MISMATCH_PENALTY]]];
+                        self.lastFlipMessageAttributed = mat1;
+
                         card.faceUp = YES;
                         c1.faceUp = NO;
                         c2.faceUp = NO;
@@ -101,6 +130,15 @@
                         moreScore = matchScore * MATCH_BONUS;
                         self.score += moreScore;
                         self.lastFlipMessage = [NSString stringWithFormat:@"Matched %@, %@ and %@\nAdding %d points", c1.contents, c2.contents, card.contents, moreScore];
+                        NSMutableAttributedString *mat1 = [[NSMutableAttributedString alloc] initWithString:@"Matched "];
+                        [mat1 appendAttributedString:c1.attributedContents];
+                        [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:@", "]];
+                        [mat1 appendAttributedString:c2.attributedContents];
+                        [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:@" and "]];
+                        [mat1 appendAttributedString:card.attributedContents];
+                        [mat1 appendAttributedString:[[NSAttributedString alloc] initWithString:[[NSString alloc] initWithFormat:@"\nAdding %d points", moreScore]]];
+                        self.lastFlipMessageAttributed = mat1;
+
                         card.faceUp = YES;
                         card.unplayable = YES;
                         c1.unplayable = YES;
@@ -136,6 +174,7 @@
             }
         }
         self.lastFlipMessage = @" ";
+        self.lastFlipMessageAttributed = nil;
         self.cardsToMatch = cardCount;
         self.gameName = gameName;
     }

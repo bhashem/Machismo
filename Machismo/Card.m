@@ -27,4 +27,9 @@
     return score;
 }
 
+- (NSAttributedString *)attributedContents
+{
+    return _attributedContents ? _attributedContents : [[NSAttributedString alloc] initWithString:self.contents];
+}
+
 @end
